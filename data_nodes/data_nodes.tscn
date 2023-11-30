@@ -1,0 +1,381 @@
+[gd_scene load_steps=7 format=3 uid="uid://calvoark1acak"]
+
+[ext_resource type="Script" path="res://data_nodes/data_nodes.gd" id="1_q7ini"]
+[ext_resource type="PackedScene" uid="uid://154vhpi3becn" path="res://data_nodes/_blueprint.tscn" id="2_o8e7n"]
+[ext_resource type="Script" path="res://data_nodes/scripts/input_number.gd" id="2_ynp3b"]
+[ext_resource type="Script" path="res://data_nodes/scripts/math_add.gd" id="4_nwbyo"]
+[ext_resource type="Script" path="res://data_nodes/scripts/output_number.gd" id="4_pg2nq"]
+[ext_resource type="Script" path="res://data_nodes/scripts/math_multiply.gd" id="5_ll0dj"]
+
+[node name="DataNodes" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_q7ini")
+
+[node name="_Blueprint" parent="." instance=ExtResource("2_o8e7n")]
+layout_mode = 0
+offset_top = -307.0
+offset_bottom = -126.0
+
+[node name="Input" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Number" type="GraphNode" parent="Input"]
+layout_mode = 0
+offset_right = 141.0
+offset_bottom = 113.0
+title = "Number"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("2_ynp3b")
+metadata/_edit_group_ = true
+
+[node name="Output0" type="HBoxContainer" parent="Input/Number"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="Input/Number/Output0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Input/Number/Output0"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Value"
+horizontal_alignment = 2
+
+[node name="Parameters" type="VBoxContainer" parent="Input/Number"]
+layout_mode = 2
+
+[node name="Param0" type="HBoxContainer" parent="Input/Number/Parameters"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Input/Number/Parameters/Param0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Param"
+
+[node name="Value" type="SpinBox" parent="Input/Number/Parameters/Param0"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="Math" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Add" type="GraphNode" parent="Math"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 136.0
+offset_right = 174.0
+offset_bottom = 284.0
+title = "Add"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("4_nwbyo")
+metadata/_edit_group_ = true
+
+[node name="Output0" type="HBoxContainer" parent="Math/Add"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="Math/Add/Output0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Math/Add/Output0"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Result"
+horizontal_alignment = 2
+
+[node name="Parameters" type="VBoxContainer" parent="Math/Add"]
+layout_mode = 2
+
+[node name="Input0" type="HBoxContainer" parent="Math/Add"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Math/Add/Input0"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Number"
+
+[node name="Value" type="SpinBox" parent="Math/Add/Input0"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="Input1" type="HBoxContainer" parent="Math/Add"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Math/Add/Input1"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Number"
+
+[node name="Value" type="SpinBox" parent="Math/Add/Input1"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="Multiply" type="GraphNode" parent="Math"]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 140.0
+offset_right = 386.0
+offset_bottom = 288.0
+title = "Multiply"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("5_ll0dj")
+metadata/_edit_group_ = true
+
+[node name="Output0" type="HBoxContainer" parent="Math/Multiply"]
+layout_mode = 2
+
+[node name="Value" type="Label" parent="Math/Multiply/Output0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Math/Multiply/Output0"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Result"
+horizontal_alignment = 2
+
+[node name="Parameters" type="VBoxContainer" parent="Math/Multiply"]
+layout_mode = 2
+
+[node name="Input0" type="HBoxContainer" parent="Math/Multiply"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Math/Multiply/Input0"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Number"
+
+[node name="Value" type="SpinBox" parent="Math/Multiply/Input0"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="Input1" type="HBoxContainer" parent="Math/Multiply"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Math/Multiply/Input1"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Number"
+
+[node name="Value" type="SpinBox" parent="Math/Multiply/Input1"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
+
+[node name="Output" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Number" type="GraphNode" parent="Output"]
+layout_mode = 0
+offset_left = 222.0
+offset_right = 378.0
+offset_bottom = 113.0
+title = "Number"
+show_close = true
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = false
+slot/0/right_type = 0
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("4_pg2nq")
+metadata/_edit_group_ = true
+
+[node name="Parameters" type="VBoxContainer" parent="Output/Number"]
+layout_mode = 2
+
+[node name="Label0" type="HBoxContainer" parent="Output/Number/Parameters"]
+visible = false
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Output/Number/Parameters/Label0"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Param"
+
+[node name="Value" type="Label" parent="Output/Number/Parameters/Label0"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+horizontal_alignment = 1
+
+[node name="Input0" type="HBoxContainer" parent="Output/Number"]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Output/Number/Input0"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 12
+text = "Value"
+
+[node name="Value" type="SpinBox" parent="Output/Number/Input0"]
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.0
+allow_greater = true
+allow_lesser = true
+custom_arrow_step = 1.0
+select_all_on_focus = true
